@@ -32,7 +32,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/teste-globo:$(date +%s)
+          tags: ${{ secrets.DOCKER_USERNAME }}/teste-globo: $(date +%s)
 
       - name: Logout from Docker Hub
         run: docker logout
