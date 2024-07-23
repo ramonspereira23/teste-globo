@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "edee5213-5b2f-47ee-8fba-d6be239ae7ab",
+		"name": "costmate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27211267"
+	},
+	"item": [
+		{
+			"name": "plan month",
+			"item": [
+				{
+					"name": "find plan month",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/costmate/plan-month/2024/12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"plan-month",
+								"2024",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save plan month",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"referenceMonth\": 12,\n    \"referenceYear\": 2024,\n    \"totalExpenses\": null,\n    \"totalIncome\": null,\n    \"goal\": null,\n    \"surplus\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/plan-month",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"plan-month"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update plan month",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"referenceMonth\": 12,\n    \"referenceYear\": 2024,\n    \"totalExpenses\": 1212,\n    \"totalIncome\": null,\n    \"goal\": null,\n    \"surplus\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/plan-month/2024/12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"plan-month",
+								"2024",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete plan month",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"referenceMonth\": 12,\n    \"referenceYear\": 2024,\n    \"totalExpenses\": 1212,\n    \"totalIncome\": null,\n    \"goal\": null,\n    \"surplus\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/plan-month/2024/12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"plan-month",
+								"2024",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Income",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/costmate/income/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"income",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"planMonthId\": 1,\n    \"description\": \"Salary\",\n    \"value\": 2500.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/income",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"income"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"planMonthId\": 3,\n    \"description\": \"Salary \",\n    \"value\": 2500.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/income/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"income",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"referenceMonth\": 12,\n    \"referenceYear\": 2024,\n    \"totalExpenses\": 1212,\n    \"totalIncome\": null,\n    \"goal\": null,\n    \"surplus\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/income/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"income",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Expense",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/costmate/expense/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"expense",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"creditCardId\": null,\n    \"planMonthId\": 1,\n    \"description\": \"Groceries\",\n    \"value\": 50.00,\n    \"refund\": false,\n    \"installment\": null,\n    \"totalInstallments\": null,\n    \"receiptFile\": null,\n    \"receiptFileUploaded\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/expense",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"expense"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"creditCardId\": null,\n    \"planMonthId\": 1,\n    \"description\": \"Groceries XXX\",\n    \"value\": 25.00,\n    \"refund\": false,\n    \"installment\": null,\n    \"totalInstallments\": null,\n    \"receiptFile\": null,\n    \"receiptFileUploaded\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/expense/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"expense",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"referenceMonth\": 12,\n    \"referenceYear\": 2024,\n    \"totalExpenses\": 1212,\n    \"totalIncome\": null,\n    \"goal\": null,\n    \"surplus\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/expense/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"expense",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Credit Card",
+			"item": [
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/costmate/credit-card/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"credit-card",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My Credit Card\",\n    \"description\": \"Main credit card for daily expenses\",\n    \"dayDueDate\": 10,\n    \"daysToClose\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/credit-card",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"credit-card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"My Credit Card\",\n    \"description\": \"Main credit card for daily expenses\",\n    \"dayDueDate\": 12,\n    \"daysToClose\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/credit-card/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"credit-card",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"referenceMonth\": 12,\n    \"referenceYear\": 2024,\n    \"totalExpenses\": 1212,\n    \"totalIncome\": null,\n    \"goal\": null,\n    \"surplus\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/costmate/credit-card/34",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"costmate",
+								"credit-card",
+								"34"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
