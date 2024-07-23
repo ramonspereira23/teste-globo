@@ -1,13 +1,7 @@
-# FROM openjdk:20
-
-# COPY /build/libs/costmate-0.0.1-SNAPSHOT.jar costmate-0.0.1-SNAPSHOT.jar
-# CMD ["java", "-jar", "costmate-0.0.1-SNAPSHOT.jar"]
-# #https://www.docker.com/blog/9-tips-for-containerizing-your-spring-boot-code/
-# Usando a imagem base com OpenJDK 20
 FROM openjdk:20-jdk-slim
 
 # Definindo variáveis de ambiente
-ENV GRADLE_VERSION=7.5.1
+ENV GRADLE_VERSION=7.6.1
 ENV GRADLE_HOME=/opt/gradle
 ENV PATH=${GRADLE_HOME}/bin:${PATH}
 
@@ -34,4 +28,4 @@ RUN gradle build --no-daemon
 EXPOSE 8080
 
 # Comando para rodar a aplicação
-CMD ["java", "-jar", "build/libs/your-app-name.jar"]
+CMD ["java", "-jar", "build/libs/app.jar"]
