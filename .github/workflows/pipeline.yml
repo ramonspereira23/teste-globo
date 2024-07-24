@@ -24,19 +24,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Set up tag variable
-        id: vars
-        run: |
-          TAG="${{ github.sha }}"
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: |
-            ${{ secrets.DOCKER_USERNAME }}/teste-globo:latest
-            ${{ secrets.DOCKER_USERNAME }}/teste-globo:${{ env.TAG }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/teste-globo:${{ github.sha }}
 
       - name: Logout from Docker Hub
         run: docker logout
