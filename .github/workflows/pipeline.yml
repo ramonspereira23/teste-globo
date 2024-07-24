@@ -27,8 +27,7 @@ jobs:
       - name: Set up tag variable
         id: vars
         run: |
-          TAG="${{ github.sha }}-$(date +'%Y%m%d%H%M%S')"
-          echo "TAG=${TAG}" >> $GITHUB_ENV
+          TAG="$(date +'%Y%m%d%H%M%S')"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
