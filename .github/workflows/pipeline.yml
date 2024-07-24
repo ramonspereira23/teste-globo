@@ -29,7 +29,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/teste-globo:${{ github.sha }}
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/teste-globo:latest
+            ${{ secrets.DOCKER_USERNAME }}/teste-globo:${{ github.sha }}
 
       - name: Logout from Docker Hub
         run: docker logout
