@@ -15,15 +15,11 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Criando o diretório da aplicação
+
 WORKDIR /app
 
 COPY . .
 
 RUN gradle build --no-daemon
 
-RUN ls -l build/libs
-
-# COPY /app/build/libs/*.jar app.jar
-
-# CMD java -jar costmate.jar
+CMD java -jar build/libs/costmate-0.0.1-SNAPSHOT.jar
