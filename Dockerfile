@@ -28,4 +28,4 @@ RUN gradle build --no-daemon
 EXPOSE 8080
 
 # Comando para rodar a aplicação
-CMD ["java", "-jar", "build/libs/app.jar"]
+CMD ["java", "-jar", "build/libs/*.jar"]
