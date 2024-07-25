@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
       - name: globo-container
-        image: ramon23sousa/teste-globo:3befdabbbad889a7876576d62563d7c150a5fd00
+        image: ramon23sousa/teste-globo:mac10
         ports:
         - containerPort: 8080
         envFrom:
@@ -50,10 +50,10 @@ spec:
               name: database-config
         resources:
           limits:
-            cpu: 500m
-            memory: 2000Mi
+            cpu: 2.0
+            memory: 4000Mi
           requests:
-            cpu: 100m
+            cpu: 0.5
             memory: 1000Mi
         livenessProbe:
           httpGet:
