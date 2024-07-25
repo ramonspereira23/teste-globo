@@ -6,14 +6,11 @@ ENV GRADLE_HOME=/opt/gradle
 ENV PATH=${GRADLE_HOME}/bin:${PATH}
 
 # Instalando dependências e Gradle
-RUN apt-get update \
-    && apt-get install -y wget unzip \
+RUN apk add --no-cache wget unzip \
     && wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip \
     && unzip gradle-${GRADLE_VERSION}-bin.zip -d /opt/ \
     && ln -s /opt/gradle-${GRADLE_VERSION} ${GRADLE_HOME} \
-    && rm gradle-${GRADLE_VERSION}-bin.zip \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm gradle-${GRADLE_VERSION}-bin.zip
 
 # Criando o diretório da aplicação
 WORKDIR /app
