@@ -11,9 +11,9 @@ management:
         include: '*'
 spring:
   datasource:
-    username: user
-    url: jdbc:postgresql://localhost:5432/costmate
-    password: pwuser
+    username: ${DATABASE_USER} ## user
+    url: ${DATABASE_URL}/costmate ## jdbc:postgresql://localhost:5432/costmate
+    password: ${DATABASE_PASSWORD}
   jpa:
     properties:
       hibernate:
