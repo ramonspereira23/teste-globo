@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ "pipeline" ]
+    branches: [ "develop" ]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -21,8 +21,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ramonglobo
+          password: Globo@123
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -31,8 +31,32 @@ jobs:
           push: true
           platforms: linux/arm64/v8
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/teste-globo:latest
-            ${{ secrets.DOCKER_USERNAME }}/teste-globo:${{ github.sha }}
+            ramonglobo/app-globo:latest
+            ramonglobo/app-globo:${{ github.sha }}
+
+      - name: Update Kubernetes manifests with new image
+        run: |
+          IMAGE_TAG=${{ github.sha }}
+          for file in k8s/*.yaml; do
+            sed -i "s|ramonglobo/app-globo:.*|ramonglobo/app-globo:${IMAGE_TAG}|g" "$file"
+          done
+
+      - name: Commit and push updated manifests
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git checkout -b update-manifests
+          git add k8s/*.yaml
+          git commit -m "Update manifests with image tag ${{ github.sha }}"
+          git push origin update-manifests
+
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v4
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: update-manifests
+      #     title: "Update manifests with image tag ${{ github.sha }}"
+      #     body: "This PR updates the Kubernetes manifests with the new Docker image tag."
 
       - name: Logout from Docker Hub
         run: docker logout

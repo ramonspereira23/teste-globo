@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
       - name: globo-container
-        image: ramon23sousa/teste-globo:mac10
+        image: ramonglobo/app-globo:mac10
         ports:
         - containerPort: 8080
         envFrom:
