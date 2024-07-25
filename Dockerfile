@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-alpine
 
 # Definindo variáveis de ambiente
 ENV GRADLE_VERSION=7.6.1
