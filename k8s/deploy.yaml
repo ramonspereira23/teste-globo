@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: my-app-container
-        image: ramon23sousa/teste-globo:latest
+        image: ramon23sousa/teste-globo:mac3
         ports:
         - containerPort: 8080

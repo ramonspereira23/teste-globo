@@ -18,23 +18,12 @@ RUN apt-get update \
 # Criando o diretório da aplicação
 WORKDIR /app
 
-# Copiando os arquivos da aplicação para o contêiner
 COPY . .
 
-# Construindo a aplicação
 RUN gradle build --no-daemon
 
+RUN ls -l build/libs
 
-RUN ls
-# # Encontrar o JAR gerado e mover para o diretório /app
-# RUN JAR_FILE=$(find build/libs -name '*.jar') && \
-#     cp $JAR_FILE costmate.jar
+# COPY /app/build/libs/*.jar app.jar
 
-# # Verificar se o JAR foi copiado com sucesso
-# RUN ls -l costmate.jar
-
-# # Expondo a porta (ajuste conforme necessário)
-# EXPOSE 8080
-
-# Comando para rodar a aplicação
-CMD ["java", "-jar", "costmate.jar"]
+# CMD java -jar costmate.jar
