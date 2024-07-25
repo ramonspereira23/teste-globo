@@ -1,0 +1,35 @@
+management:
+  endpoint:
+    health:
+      group:
+        custom:
+          show-components: always
+          show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  datasource:
+    username: user
+    url: jdbc:postgresql://localhost:5432/costmate
+    password: pwuser
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+    show-sql: 'true'
+  mvc:
+    locale: en_US
+logging:
+  level:
+    br:
+      com:
+        artvimluc:
+          costmate: DEBUG
+server:
+  servlet:
+    context-path: /costmate
+  port: '8080'
+
