@@ -24,8 +24,17 @@ COPY . .
 # Construindo a aplicação
 RUN gradle build --no-daemon
 
-# Expondo a porta (ajuste conforme necessário)
-EXPOSE 8080
+
+RUN ls
+# # Encontrar o JAR gerado e mover para o diretório /app
+# RUN JAR_FILE=$(find build/libs -name '*.jar') && \
+#     cp $JAR_FILE costmate.jar
+
+# # Verificar se o JAR foi copiado com sucesso
+# RUN ls -l costmate.jar
+
+# # Expondo a porta (ajuste conforme necessário)
+# EXPOSE 8080
 
 # Comando para rodar a aplicação
-CMD ["java", "-jar", "build/libs/*.jar"]
+CMD ["java", "-jar", "costmate.jar"]
