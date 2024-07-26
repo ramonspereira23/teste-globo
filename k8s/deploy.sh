@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# Define os arquivos YAML
-DATABASE_YAML="database.yaml"
-APP_YAML="app.yaml"
+
 
 # Variáveis para a nova imagem e tag, atualizar após execução do pipeline no Github Actions que resultará numa nova image e tag!
 IMAGE="ramonglobo/app-globo"
 TAG="latest"
+
+
+# Define os arquivos YAML
+DATABASE_YAML="database.yaml"
+APP_YAML="app.yaml"
 
 # Aplica os manifests do Kubernetes
 echo "Aplicando o manifesto do banco de dados..."
@@ -47,6 +50,7 @@ fi
 
 echo # Linha em branco para melhorar a legibilidade
 
+sleep 60
 # Inicia o port-forward para o serviço
 echo "Iniciando o port-forward para o serviço globo-service..."
 kubectl port-forward svc/globo-service 8080:80 -n globo

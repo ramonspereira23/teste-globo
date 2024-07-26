@@ -64,5 +64,27 @@ Automatize o máximo possível;
 
 Em caso de dúvidas, pergunte.
 
+# Escolhas das Ferramentas e Processos
+
+* Utilizamos um Dockerfile para execução do build da aplicação para facilitar e reduzir a pipeline, onde a mesma pipeline pode ser utilizada em outros repositórios que sigam o padrão de conter um Dockerfile
+* Foi utilizado o Github Actions pois o repositório fornecido é no Github, além das facilidades, rapidez na implementação e disponibilidade de horas de execução nos runners
+* Docker hub foi usado como registry de imagem por ser uma ferramenta Open Source, no caso das imagens geradas estão publicas, mas para um ambiente controlado interno a empresa é mandatório o uso de imagens privadas para que seus sistema não fique disponivel para o mundo.
+* Foi utilizado manifestos de kubernetes para facilitar a implementação da aplicação escolhida e do banco de dados Postgres que complementa o funcionamento desta aplicação
+* Devido a não disponibilidade de secrets dentro do github a atualização automática dos manifestos via pipeline não foi possivel, uma vez que é necessário ter credenciais para acesso dos repo. Nesse caso, a atualização dos manifestos e de start manual e execução via shell script
+* O cluster de kubernetes foi provisionado via minikube por ser open source executado localmente no meu notebook
+* O uso de ingress foi impossibilitado devido a restrição no minuke ao criar rotas locais para apontamento de DNS (O ingress controller foi instalado com sucesso, adicionado ingress para aplicação porém o problema com o minkube impossibilitou acessar)
+* Como medida de acesso a aplicação provisionada, foram feitos via shell script o start de portforward local onde se possibilita acessar a aplicação e o monitoramento via localhost
+* Foi utilizado a ferramenta helm para implantar outras ferramentas no cluster de kubernetes, devido a agilidade de implantação é gerenciamento
+* A Stack de monitoria (Prometheus e Grafana) utilizada foi levado em consideração por ser open source e de fácil instrumentação
 
 
+
+# Melhorias Listadas
+
+* Uso de kubernetes gerenciado dentro de um Cloud Provider (Provisionados via IAC)
+* Uso do ingress para configurações de diversos paths e hosts
+* Utilizar secrets para armazenar token do Github possibilitando a interação do pipeline com repositórios do Github
+* Aderir o uso de env e secrets para guardar dados de credenciais, senhas e token no geral que possam ser utilizadas na pipeline
+* Utilizar uma ferramenta a parte para CD, como por exemplo o Argocd que através do kustomize possibilita o uso de templates base na parte de manifestos pro kubernetes
+* O uso do Argocd também possibilita trabalhar o GitOps, onde tanto aplicações quanto ferramentas podem ser implementadas no cluster de kubernetes
+* Utilizar o Istio para parte de ingress e possibilitando uma melhor visibilidade dos serviços através do uso do Kiali

@@ -1,4 +1,9 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: globo
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: database-config
@@ -35,8 +40,8 @@ spec:
               name: database-config
         resources:
           limits:
-            cpu: 2.0
-            memory: 4000Mi
+            cpu: 1.0
+            memory: 2000Mi
           requests:
             cpu: 0.5
             memory: 1000Mi

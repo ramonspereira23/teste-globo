@@ -255,7 +255,7 @@
       ],
       "thresholds": [],
       "timeRegions": [],
-      "title": "Number of Pods Running",
+      "title": "Pods Running",
       "tooltip": {
         "shared": true,
         "sort": 0,
