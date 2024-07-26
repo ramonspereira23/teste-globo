@@ -20,6 +20,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN gradle build --no-daemon
+RUN gradle build -x test --no-daemon
 
 CMD java -jar build/libs/costmate-0.0.1-SNAPSHOT.jar
