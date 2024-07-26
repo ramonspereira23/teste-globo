@@ -45,16 +45,16 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git checkout -b pipeline
+          git checkout -b pipeline-deploy
           git add k8s/*.yaml
           git commit -m "Update manifests with image tag ${{ github.sha }}"
-          git push origin pipeline
+          git push origin pipeline-deploy
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: pipeline
+          branch: pipeline-deploy
           title: "Update manifests with image tag ${{ github.sha }}"
           body: "This PR updates the Kubernetes manifests with the new Docker image tag."
 
