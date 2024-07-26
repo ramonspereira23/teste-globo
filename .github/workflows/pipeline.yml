@@ -34,20 +34,5 @@ jobs:
             ramonglobo/app-globo:latest
             ramonglobo/app-globo:${{ github.sha }}
 
-      - name: Update Kubernetes manifests with new image
-        run: |
-          IMAGE_TAG=${{ github.sha }}
-          for file in k8s/*.yaml; do
-            sed -i "s|ramonglobo/app-globo:.*|ramonglobo/app-globo:${IMAGE_TAG}|g" "$file"
-          done
-
-      - name: Commit and push updated manifests
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add k8s/*.yaml
-          git commit -m "Update manifests with image tag ${{ github.sha }}" || echo "No changes to commit"
-          git push
-
       - name: Logout from Docker Hub
         run: docker logout

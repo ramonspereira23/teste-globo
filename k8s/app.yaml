@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
       - name: globo-container
-        image: ramonglobo/app-globo:ca47b88e6f9525f1c9828d1041626fe4e35c9aea
+        image: ramonglobo/app-globo:latest
         ports:
         - containerPort: 8080
         envFrom:
