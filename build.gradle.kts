@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "3.0.5"
+	id("org.springframework.boot") version "3.3.2"
 	id("io.spring.dependency-management") version "1.1.0"
-	id("org.flywaydb.flyway") version "9.8.1"
+	// id("org.flywaydb.flyway") version "9.8.1"
 	kotlin("jvm") version "1.7.22"
 	kotlin("plugin.spring") version "1.7.22"
 	kotlin("plugin.jpa") version "1.7.22"
@@ -27,6 +27,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
 	implementation("io.micrometer:micrometer-registry-prometheus:1.13.2")
+	implementation("org.flywaydb:flyway-core:9.22.3")
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("org.postgresql:postgresql")
@@ -44,12 +45,12 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-flyway {
-	url = "jdbc:postgresql://localhost:5432/costmate"
-	user = "user"
-	password = "pwuser"
-	cleanDisabled = false
-}
+//flyway {
+//	url = "jdbc:postgresql://localhost:5432/costmate"
+//	user = "user"
+//	password = "pwuser"
+//	cleanDisabled = false
+//}
 abstract class GreetingTask : DefaultTask() {
 
 	@TaskAction
