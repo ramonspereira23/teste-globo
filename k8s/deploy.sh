@@ -4,7 +4,7 @@
 DATABASE_YAML="database.yaml"
 APP_YAML="app.yaml"
 
-# Variáveis para a nova imagem e tag
+# Variáveis para a nova imagem e tag, atualizar após execução do pipeline no Github Actions que resultará numa nova image e tag!
 IMAGE="ramonglobo/app-globo"
 TAG="latest"
 
@@ -47,4 +47,6 @@ fi
 
 echo # Linha em branco para melhorar a legibilidade
 
-echo "Todos os manifests aplicados com sucesso."
+# Inicia o port-forward para o serviço
+echo "Iniciando o port-forward para o serviço globo-service..."
+kubectl port-forward svc/globo-service 8080:80 -n globo
