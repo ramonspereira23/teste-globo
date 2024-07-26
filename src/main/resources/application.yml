@@ -35,4 +35,3 @@ server:
   servlet:
     context-path: /costmate
   port: '8080'
-
