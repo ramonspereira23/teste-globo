@@ -34,5 +34,28 @@ jobs:
             ramonglobo/app-globo:latest
             ramonglobo/app-globo:${{ github.sha }}
 
+      #### Processo de atualização automática com uso de token do git 
+
+      # - name: Commit and push updated manifests
+      #   run: |
+      #     git config --global user.name "github-actions"
+      #     git config --global user.email "github-actions@github.com"
+      #     git checkout -b pipeline-deploy
+      #     git add k8s/*.yaml
+      #     git commit -m "Update manifests with image tag ${{ github.sha }}"
+      #     git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/SelecaoGlobocom/ramon_pereira.git pipeline-deploy
+    
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v4
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: pipeline-deploy
+      #     title: "Update manifests with image tag ${{ github.sha }}"
+      #     body: "PR para update dos manifestos de kubernetes de acordo com a nova imagem gerada na pipeline."
+
       - name: Logout from Docker Hub
         run: docker logout
+
+      - name: Show Docker image and tag
+        run: |
+          echo "Imagem Docker gerada com SHA: ramonglobo/app-globo:${{ github.sha }}"
